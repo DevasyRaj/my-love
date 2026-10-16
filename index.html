@@ -1,0 +1,740 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Pari ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #190819, #42142f, #190819);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    padding: 25px;
+    color: #ffb6d0;
+    letter-spacing: 3px;
+    font-size: 14px;
+}
+
+.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+.small-title {
+    color: #ffb6d0;
+    letter-spacing: 4px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: clamp(60px, 12vw, 110px);
+    margin: 25px 0;
+    font-weight: normal;
+    text-shadow: 0 0 35px #ff4f91;
+}
+
+h1 span {
+    color: #ff80ab;
+    font-style: italic;
+}
+
+.hero p {
+    max-width: 650px;
+    line-height: 1.9;
+    color: #f5cddd;
+    font-size: 18px;
+}
+
+.heart {
+    font-size: 40px;
+    margin: 25px;
+    animation: heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat {
+    50% { transform: scale(1.25); }
+}
+
+button {
+    background: linear-gradient(45deg, #ff4f91, #ff9dbd);
+    color: #310d22;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 25px #ff4f91;
+}
+
+section {
+    padding: 75px 20px;
+}
+
+h2 {
+    font-size: clamp(30px, 6vw, 45px);
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+h2 span {
+    color: #ff80ab;
+    font-style: italic;
+}
+
+.subtitle {
+    color: #eac4d5;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.card {
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 35px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,150,190,0.3);
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    max-width: 700px;
+    margin: auto;
+}
+
+.time {
+    background: rgba(255,120,170,0.1);
+    border: 1px solid #ff80ab55;
+    border-radius: 15px;
+    padding: 22px 5px;
+}
+
+.time strong {
+    display: block;
+    font-size: clamp(28px, 6vw, 48px);
+    color: #ff8fb5;
+    font-weight: normal;
+}
+
+.time span {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #f3c8d9;
+}
+
+#birthdayMessage {
+    margin-top: 25px;
+    color: #ffb6d0;
+}
+
+.date {
+    font-size: 28px;
+    color: #ff8fb5;
+    margin: 20px;
+}
+
+.note {
+    text-align: left;
+    line-height: 2;
+    font-size: 18px;
+    color: #ffe5ef;
+}
+
+.note p {
+    margin-bottom: 20px;
+}
+
+.signature {
+    color: #ff8fb5;
+    font-size: 25px;
+    font-style: italic;
+}
+
+.memories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    max-width: 1000px;
+    margin: 35px auto;
+}
+
+.memory {
+    padding: 30px 20px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid #ff8fb533;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.memory:hover {
+    transform: translateY(-7px);
+    background: rgba(255,100,160,0.12);
+}
+
+.memory .emoji {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.memory h3 {
+    font-size: 23px;
+    color: #ff9cbe;
+    margin-bottom: 12px;
+    font-weight: normal;
+}
+
+.memory p {
+    color: #eac4d5;
+    line-height: 1.8;
+}
+
+#surpriseText {
+    font-size: 23px;
+    line-height: 1.8;
+    color: #ffe0eb;
+    min-height: 100px;
+    margin-top: 25px;
+}
+
+.promise {
+    font-size: clamp(22px, 4vw, 34px);
+    font-style: italic;
+    line-height: 1.8;
+    color: #ffd6e5;
+}
+
+#secret {
+    line-height: 1.9;
+    color: #ffb6d0;
+    margin-top: 25px;
+}
+
+footer {
+    padding: 40px 20px;
+    color: #d7a9bf;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.floating-heart {
+    position: fixed;
+    bottom: -30px;
+    pointer-events: none;
+    animation: floatUp 5s linear forwards;
+    z-index: 99;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 650px) {
+    .memories {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 24px 18px;
+    }
+
+    .countdown {
+        gap: 6px;
+    }
+
+    .time {
+        padding: 18px 3px;
+    }
+
+    .time span {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .note {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    ♡ A LITTLE UNIVERSE MADE FOR PARI ♡
+</header>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="small-title">To the girl who makes life more special</div>
+
+    <h1>Hey, <span>Pari</span> ❤️</h1>
+
+    <p>
+        Out of all the people in this world, I'm so happy
+        that our paths crossed. So here's a little corner
+        of the internet made just for you. 💗
+    </p>
+
+    <div class="heart">♥</div>
+
+    <button onclick="document.getElementById('birthday').scrollIntoView()">
+        Your Birthday Surprise 🎁
+    </button>
+</div>
+
+<!-- COUNTDOWN -->
+<section id="birthday">
+    <h2>The countdown to <span>your day</span> 🎂</h2>
+
+    <p class="subtitle">
+        November 3 is getting closer, Pari! ✨
+    </p>
+
+    <div class="card">
+        <div class="countdown">
+            <div class="time">
+                <strong id="days">00</strong>
+                <span>DAYS</span>
+            </div>
+
+            <div class="time">
+                <strong id="hours">00</strong>
+                <span>HOURS</span>
+            </div>
+
+            <div class="time">
+                <strong id="minutes">00</strong>
+                <span>MINUTES</span>
+            </div>
+
+            <div class="time">
+                <strong id="seconds">00</strong>
+                <span>SECONDS</span>
+            </div>
+        </div>
+
+        <p id="birthdayMessage">Counting down to your special day 💗</p>
+    </div>
+</section>
+
+<!-- RELATIONSHIP -->
+<section>
+    <h2>Where our <span>story began</span> 🌙</h2>
+
+    <p class="subtitle">
+        Some dates are more than dates. They're memories.
+    </p>
+
+    <div class="card">
+        <div style="font-size:45px">💗 🌷 💗</div>
+
+        <div class="date">12 October 2026</div>
+
+        <p class="subtitle">
+            The beginning of our little story.
+            A new chapter filled with laughter, happiness,
+            silly conversations, and memories waiting to be made.
+        </p>
+
+        <h3 id="relationshipTime" style="color:#ff9cbe;font-weight:normal">
+            Our story is just beginning...
+        </h3>
+    </div>
+</section>
+
+<!-- LITTLE THINGS -->
+<section>
+    <h2>Things I wish <span>for us</span> 💞</h2>
+
+    <p class="subtitle">
+        Because sometimes the smallest things mean the most.
+    </p>
+
+    <div class="memories">
+        <div class="memory">
+            <div class="emoji">🌻</div>
+            <h3>Your Smile</h3>
+            <p>
+                I hope you always find reasons to smile,
+                even on the most ordinary days.
+            </p>
+        </div>
+
+        <div class="memory">
+            <div class="emoji">🌌</div>
+            <h3>Our Conversations</h3>
+            <p>
+                Random talks, silly jokes, shared dreams,
+                and memories we will laugh about someday.
+            </p>
+        </div>
+
+        <div class="memory">
+            <div class="emoji">🫶</div>
+            <h3>Our Understanding</h3>
+            <p>
+                Honesty, respect, patience, and always
+                making an effort to understand each other.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- LOVE LETTER -->
+<section>
+    <h2>A letter for <span>Pari</span> 💌</h2>
+
+    <p class="subtitle">
+        A few words from my heart to yours.
+    </p>
+
+    <div class="card note">
+        <p>Dear Pari, ❤️</p>
+
+        <p>
+            Sometimes words aren't enough to explain how
+            special someone is, but I'm going to try anyway.
+        </p>
+
+        <p>
+            Since our story began on 12 October 2026,
+            that date has become a little more meaningful
+            to me. I'm happy that we started this journey,
+            and I'm excited about the memories we can make together.
+        </p>
+
+        <p>
+            As your birthday on November 3 gets closer,
+            I want you to remember something: you are special
+            just as you are. You don't need to be perfect
+            to deserve happiness, kindness, or appreciation.
+        </p>
+
+        <p>
+            I hope we laugh over silly things, encourage
+            each other's dreams, learn from our mistakes,
+            and always treat each other with care and respect.
+        </p>
+
+        <p>
+            I can't promise that every day will be perfect,
+            but I hope we keep choosing honesty, patience,
+            understanding, and kindness.
+        </p>
+
+        <p>
+            This little website is my way of giving you
+            something different, something made especially
+            for you. Every little detail carries one message:
+            I'm glad you're part of my story. 💗
+        </p>
+
+        <p class="signature">
+            Happy almost-birthday, Pari! 🌷
+        </p>
+
+        <p style="text-align:right">
+            With lots of affection,<br>
+            Someone who is happy to have you in their story ♡
+        </p>
+    </div>
+</section>
+
+<!-- SURPRISES -->
+<section>
+    <h2>A box of <span>little surprises</span> 🎁</h2>
+
+    <p class="subtitle">
+        Pari, choose a surprise. Each button hides something special!
+    </p>
+
+    <div class="card">
+        <div style="font-size:50px">🎀</div>
+
+        <div id="surpriseText">
+            Your first surprise is waiting here, Pari... 💗
+        </div>
+
+        <button onclick="revealSurprise(0)">
+            A Compliment 🌸
+        </button>
+
+        <button onclick="revealSurprise(1)">
+            A Birthday Wish 🎂
+        </button>
+
+        <button onclick="revealSurprise(2)">
+            A Promise 🫶
+        </button>
+
+        <button onclick="revealSurprise(3)">
+            Mystery Surprise ✨
+        </button>
+
+        <br><br>
+
+        <button onclick="heartRain()">
+            Make It Rain Hearts 💖
+        </button>
+    </div>
+</section>
+
+<!-- PROMISE -->
+<section>
+    <div class="card">
+        <h2>One little <span>promise</span> 💗</h2>
+
+        <p class="promise">
+            "I can't promise every day will be perfect,
+            but I hope we keep making beautiful memories,
+            respecting each other, and finding reasons
+            to smile together."
+        </p>
+
+        <br>
+
+        <button onclick="showSecret()">
+            One Last Secret 🤫
+        </button>
+
+        <p id="secret" style="display:none">
+            Pari, if you're reading this, smile for a moment.
+            Someone took the time to build this tiny universe
+            just to make your birthday feel a little more magical.
+            You deserve a beautiful day and a year full of happiness. 🌷❤️
+        </p>
+    </div>
+</section>
+
+<footer>
+    MADE WITH ❤️ FOR PARI<br><br>
+    12 OCTOBER 2026 — THE BEGINNING OF OUR STORY<br><br>
+    SEE YOU ON 3 NOVEMBER, BIRTHDAY GIRL 🎂
+</footer>
+
+<script>
+
+// BIRTHDAY COUNTDOWN
+function getNextBirthday() {
+    const now = new Date();
+
+    // November is month 10 in JavaScript.
+    let birthday = new Date(
+        now.getFullYear(), 10, 3, 0, 0, 0
+    );
+
+    if (now >= birthday) {
+        birthday = new Date(
+            now.getFullYear() + 1, 10, 3, 0, 0, 0
+        );
+    }
+
+    return birthday;
+}
+
+let birthdayDate = getNextBirthday();
+
+function updateCountdown() {
+    const now = new Date();
+
+    if (now >= birthdayDate) {
+        birthdayDate = getNextBirthday();
+    }
+
+    let difference = birthdayDate - now;
+
+    const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+    );
+
+    difference %= 1000 * 60 * 60 * 24;
+
+    const hours = Math.floor(
+        difference / (1000 * 60 * 60)
+    );
+
+    difference %= 1000 * 60 * 60;
+
+    const minutes = Math.floor(
+        difference / (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (difference % (1000 * 60)) / 1000
+    );
+
+    document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+
+    const isBirthday =
+        now.getMonth() === 10 && now.getDate() === 3;
+
+    document.getElementById("birthdayMessage").textContent =
+        isBirthday
+            ? "HAPPY BIRTHDAY, PARI! 🎂❤️ Today is all yours!"
+            : "Counting down to " +
+              birthdayDate.toLocaleDateString(undefined, {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric"
+              }) + " ✨";
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+
+// RELATIONSHIP COUNTER
+// Month 9 means October.
+const relationshipStart = new Date(
+    2026, 9, 12, 0, 0, 0
+);
+
+function updateRelationship() {
+    const now = new Date();
+    const display = document.getElementById("relationshipTime");
+
+    if (now < relationshipStart) {
+        const daysLeft = Math.ceil(
+            (relationshipStart - now) / 86400000
+        );
+
+        display.textContent =
+            "Our story begins in " + daysLeft + " day(s) 💞";
+
+        return;
+    }
+
+    const daysTogether = Math.floor(
+        (now - relationshipStart) / 86400000
+    );
+
+    display.textContent =
+        daysTogether === 0
+        ? "Day one of our story 💗"
+        : daysTogether + " beautiful day" +
+          (daysTogether === 1 ? "" : "s") +
+          " since our story began 💗";
+}
+
+updateRelationship();
+setInterval(updateRelationship, 60000);
+
+
+// HIDDEN SURPRISES
+const surprises = [
+    "Pari, your smile can make an ordinary moment feel special. Never forget how wonderful it is to be yourself. 🌸❤️",
+
+    "My birthday wish for you: may this year bring you happiness, peaceful days, exciting adventures, wonderful memories, and dreams that come true. 🎂✨",
+
+    "My promise is to keep learning, listening, communicating honestly, respecting your feelings, and cheering for the dreams that matter to you. 🫶",
+
+    "SURPRISE! 🎉 You have unlocked 1,000 imaginary hugs, unlimited birthday wishes, a sky full of stars, and a little extra sparkle made just for you! 💖✨"
+];
+
+function revealSurprise(index) {
+    document.getElementById("surpriseText").textContent =
+        surprises[index];
+
+    heartRain();
+}
+
+
+// FLOATING HEART ANIMATION
+function heartRain() {
+    const symbols = ["❤️", "💗", "💕", "💖", "✨", "🌸"];
+
+    for (let i = 0; i < 35; i++) {
+        setTimeout(() => {
+            const heart = document.createElement("div");
+
+            heart.className = "floating-heart";
+
+            heart.textContent =
+                symbols[Math.floor(Math.random() * symbols.length)];
+
+            heart.style.left = Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (18 + Math.random() * 25) + "px";
+
+            heart.style.animationDuration =
+                (3 + Math.random() * 3) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 6500);
+
+        }, i * 70);
+    }
+}
+
+
+// LAST SECRET
+function showSecret() {
+    const secret = document.getElementById("secret");
+
+    secret.style.display = "block";
+
+    heartRain();
+
+    secret.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+
+// WELCOME SPARKLES
+setTimeout(heartRain, 1000);
+
+</script>
+
+</body>
+</html>
+```
